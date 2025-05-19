@@ -33,7 +33,7 @@ prompt APPLICATION 84264 - Hospitaltest
 -- Application Export:
 --   Application:     84264
 --   Name:            Hospitaltest
---   Date and Time:   21:01 Sunday May 18, 2025
+--   Date and Time:   08:05 Monday May 19, 2025
 --   Exported By:     IBRAHIM.HABEEB2004@GMAIL.COM
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -61,7 +61,7 @@ prompt APPLICATION 84264 - Hospitaltest
 --       Globalization:
 --       Reports:
 --       E-Mail:
---     Supporting Objects:  Included (auto-install)
+--     Supporting Objects:  Included
 --       Install scripts:          1
 --   Version:         24.2.5
 --   Instance ID:     63113759365424
@@ -109,7 +109,7 @@ wwv_imp_workspace.create_flow(
 ,p_substitution_value_01=>'Hospitaltest'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>31
-,p_version_scn=>15625393366869
+,p_version_scn=>15625509549595
 ,p_print_server_type=>'INSTANCE'
 ,p_file_storage=>'DB'
 ,p_is_pwa=>'Y'
@@ -5960,7 +5960,7 @@ wwv_flow_imp_page.create_region_column(
 ,p_display_sequence=>10
 ,p_value_alignment=>'CENTER'
 ,p_link_target=>'f?p=&APP_ID.:17:&SESSION.::&DEBUG.::P17_APPOINTMENTID,P17_PRESCRIPTIONID:&APPOINTMENTID.,&PRESCRIPTIONID.'
-,p_link_text=>'<span role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span>'
+,p_link_text=>'<button type="button" class="btn btn-primary">   <i class="fa fa-edit"></i> Add Prescription </button>'
 ,p_use_as_row_header=>false
 ,p_enable_hide=>true
 ,p_escape_on_http_output=>true
@@ -6314,7 +6314,7 @@ wwv_flow_imp_page.create_region_column(
 ,p_display_sequence=>10
 ,p_value_alignment=>'CENTER'
 ,p_link_target=>'f?p=&APP_ID.:18:&SESSION.::&DEBUG.::P18_BILL,P18_PATIENTID,P18_OUTSTANDING_BALANCE,P18_PATIENT_NAME,P18_PAYMENTID,P18_PRESCRIPTIONID:&BILL.,&PATIENT_ID.,&OUTSTANDING_BALANCE.,&PATIENT_NAME.,&PAYMENTID.,&PRESCRIPTIONID.'
-,p_link_text=>'<span role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span>'
+,p_link_text=>'<button type="button" class="btn btn-primary">   <i class="fa fa-edit"></i> Pay Balance  </button>'
 ,p_use_as_row_header=>false
 ,p_enable_hide=>true
 ,p_escape_on_http_output=>true
@@ -9062,7 +9062,7 @@ end;
 /
 prompt --application/end_environment
 begin
-wwv_flow_imp.import_end(p_auto_install_sup_obj => nvl(wwv_flow_application_install.get_auto_install_sup_obj, true)
+wwv_flow_imp.import_end(p_auto_install_sup_obj => nvl(wwv_flow_application_install.get_auto_install_sup_obj, false)
 );
 commit;
 end;
